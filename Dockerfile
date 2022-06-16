@@ -15,4 +15,6 @@ WORKDIR /app
 
 COPY --from=builder /go/src/github.com/liangguifeng/go-devtools/go-devtools /app/
 
+EXPOSE 8000
+
 CMD go-devtools
