@@ -11,10 +11,6 @@ RUN CGO_ENABLED=0 GOARCH=amd64 GOOS=linux go build -o go-devtools .
 
 FROM alpine:3.10 AS final
 
-WORKDIR /app
+COPY --from=builder /go/src/github.com/liangguifeng/go-devtools/go-devtools /usr/local/bin
 
-COPY --from=builder /go/src/github.com/liangguifeng/go-devtools/go-devtools /app/
-
-EXPOSE 8000
-
-CMD go-devtools
+CMD /app/go-devtools
