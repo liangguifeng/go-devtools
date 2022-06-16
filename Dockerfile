@@ -13,4 +13,4 @@ FROM alpine:3.10 AS final
 
 COPY --from=builder /go/src/github.com/liangguifeng/go-devtools/go-devtools /usr/local/bin
 
-CMD /app/go-devtools
+CMD go-devtools
